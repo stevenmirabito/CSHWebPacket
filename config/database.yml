@@ -1,0 +1,13 @@
+production:
+  adapter: mysql
+  encoding: utf8
+  pool: 10
+  database: <%=ENV['OPENSHIFT_APP_NAME']%>
+  username: <%=ENV['OPENSHIFT_MYSQL_DB_USERNAME']%>
+  password: <%=ENV['OPENSHIFT_MYSQL_DB_PASSWORD']%>
+  host: <%=ENV['OPENSHIFT_MYSQL_DB_HOST']%>
+  port: <%=ENV['OPENSHIFT_MYSQL_DB_PORT']%>
+  ldap_host: <%=ENV['OPENSHIFT_LDAP_HOST']%>
+  ldap_port: <%=ENV['OPENSHIFT_LDAP_PORT']%>
+  ldap_dn: <%=ENV['OPENSHIFT_LDAP_DN']%>
+  ldap_password: <%=ENV['OPENSHIFT_LDAP_PASSWORD']%>
