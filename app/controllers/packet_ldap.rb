@@ -12,10 +12,11 @@ module PacketLdap
         EXCEPTIONS = [OpenSSL::SSL::SSLError, Net::LDAP::LdapError,Errno::ETIMEDOUT ]
 
         def initialize()
-            host     = 'ldap.csh.rit.edu'
-            port     = 636
-            username = 'cn=packet,ou=Apps,dc=csh,dc=rit,dc=edu'
-            password = IO.read('db-key').chomp 
+            config   = Rails.configuration.database_configuration[Rails.env]
+            host     = config["ldap_host"]
+            port     = config["ldap_port"]
+            username = config["ldap_username"]
+            password = config["ldap_password"]
             @ldap = LDAP.new({
                 :host => host,
                 :port => port,
